@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sequential Color Map using D3.js</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .color-box {
+      display: inline-block;
+      width : 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sequential Color Map using D3.js</h1>
+  <div id="color-map">
+    <html>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<body style="text-align:center;">
+
+<h2>Basic Tooltip</h2>
+
+
+
+<div class="tooltip">SHADES OF BLUE
+  <span class="tooltiptext">15%-100%</span>
+</div>
+
+
+
+</body>
+</html>
+  </div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const colorMapContainer = d3.select("#color-map");
+
+
+    const colorMap = d3.scaleSequential()
+      .interpolator(d3.interpolateBlues)
+      .domain([0, 10]);
+
+
+    for (let i = 0; i <= 10; i++) {
+      colorMapContainer.append("div")
+        .attr("class", "color-box")
+        .style("background-color", colorMap(i));
+    }
+  </script>
+</body>
+</html>
